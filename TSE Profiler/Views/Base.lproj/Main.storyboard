@@ -6,16 +6,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reporting Lines-->
+        <!--TSE-->
         <scene sceneID="jDb-US-mN0">
             <objects>
-                <tableViewController id="Bht-VK-k45" sceneMemberID="viewController">
+                <tableViewController id="Bht-VK-k45" customClass="TSEViewController" customModule="TSE_Profiler" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kIK-F6-vXG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vLP-OA-zZ0">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TSECell" id="vLP-OA-zZ0">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vLP-OA-zZ0" id="HeK-S8-ghV">
@@ -29,7 +29,13 @@
                             <outlet property="delegate" destination="Bht-VK-k45" id="4Ic-Xv-2Xd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Reporting Lines" id="gbS-TA-0lt"/>
+                    <navigationItem key="navigationItem" title="TSE" id="gbS-TA-0lt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hre-s2-XK4">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="Bht-VK-k45" id="nmq-il-mTh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ss5-Z3-WLv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

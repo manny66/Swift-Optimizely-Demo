@@ -10,10 +10,12 @@
 		960CAA09C76B867927E301B6 /* Pods_TSE_Profiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EDFF71886E8D87943F87EC /* Pods_TSE_Profiler.framework */; };
 		EC032DE7246B8BF200AADEEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DE6246B8BF200AADEEA /* AppDelegate.swift */; };
 		EC032DE9246B8BF200AADEEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DE8246B8BF200AADEEA /* SceneDelegate.swift */; };
-		EC032DEB246B8BF200AADEEA /* TSEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DEA246B8BF200AADEEA /* TSEViewController.swift */; };
+		EC032DEB246B8BF200AADEEA /* TSEListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DEA246B8BF200AADEEA /* TSEListViewController.swift */; };
 		EC032DEE246B8BF200AADEEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC032DEC246B8BF200AADEEA /* Main.storyboard */; };
 		EC032DF0246B8BF400AADEEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC032DEF246B8BF400AADEEA /* Assets.xcassets */; };
 		EC032DF3246B8BF400AADEEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC032DF1246B8BF400AADEEA /* LaunchScreen.storyboard */; };
+		EC032DFE246B941200AADEEA /* TSE.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DFD246B941200AADEEA /* TSE.swift */; };
+		EC032E02246BBF1200AADEEA /* TSETasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032E01246BBF1200AADEEA /* TSETasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,11 +24,13 @@
 		EC032DE3246B8BF200AADEEA /* TSE Profiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TSE Profiler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC032DE6246B8BF200AADEEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC032DE8246B8BF200AADEEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EC032DEA246B8BF200AADEEA /* TSEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEViewController.swift; sourceTree = "<group>"; };
+		EC032DEA246B8BF200AADEEA /* TSEListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEListViewController.swift; sourceTree = "<group>"; };
 		EC032DED246B8BF200AADEEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC032DEF246B8BF400AADEEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC032DF2246B8BF400AADEEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC032DF4246B8BF400AADEEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC032DFD246B941200AADEEA /* TSE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE.swift; sourceTree = "<group>"; };
+		EC032E01246BBF1200AADEEA /* TSETasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSETasks.swift; sourceTree = "<group>"; };
 		FC09003B9C760E767399CB2C /* Pods-TSE Profiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSE Profiler.debug.xcconfig"; path = "Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,7 +99,7 @@
 		EC032DFA246B8D2500AADEEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EC032DEA246B8BF200AADEEA /* TSEViewController.swift */,
+				EC032DEA246B8BF200AADEEA /* TSEListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -111,6 +115,8 @@
 		EC032DFC246B8D4F00AADEEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EC032DFD246B941200AADEEA /* TSE.swift */,
+				EC032E01246BBF1200AADEEA /* TSETasks.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,7 +236,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC032DEB246B8BF200AADEEA /* TSEViewController.swift in Sources */,
+				EC032DFE246B941200AADEEA /* TSE.swift in Sources */,
+				EC032DEB246B8BF200AADEEA /* TSEListViewController.swift in Sources */,
+				EC032E02246BBF1200AADEEA /* TSETasks.swift in Sources */,
 				EC032DE7246B8BF200AADEEA /* AppDelegate.swift in Sources */,
 				EC032DE9246B8BF200AADEEA /* SceneDelegate.swift in Sources */,
 			);
@@ -384,7 +392,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.maniproductions.TSE-Profiler";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.optimizely.manny.TSE-Profiler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -403,7 +411,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.maniproductions.TSE-Profiler";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.optimizely.manny.TSE-Profiler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
