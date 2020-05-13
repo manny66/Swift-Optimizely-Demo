@@ -3,27 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960CAA09C76B867927E301B6 /* Pods_TSE_Profiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EDFF71886E8D87943F87EC /* Pods_TSE_Profiler.framework */; };
 		EC032DE7246B8BF200AADEEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DE6246B8BF200AADEEA /* AppDelegate.swift */; };
 		EC032DE9246B8BF200AADEEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DE8246B8BF200AADEEA /* SceneDelegate.swift */; };
-		EC032DEB246B8BF200AADEEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DEA246B8BF200AADEEA /* ViewController.swift */; };
+		EC032DEB246B8BF200AADEEA /* TSEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DEA246B8BF200AADEEA /* TSEViewController.swift */; };
 		EC032DEE246B8BF200AADEEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC032DEC246B8BF200AADEEA /* Main.storyboard */; };
 		EC032DF0246B8BF400AADEEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC032DEF246B8BF400AADEEA /* Assets.xcassets */; };
 		EC032DF3246B8BF400AADEEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC032DF1246B8BF400AADEEA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D4EDFF71886E8D87943F87EC /* Pods_TSE_Profiler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSE_Profiler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E34A9A8F74E70F9CE63D8FDA /* Pods-TSE Profiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSE Profiler.release.xcconfig"; path = "Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler.release.xcconfig"; sourceTree = "<group>"; };
 		EC032DE3246B8BF200AADEEA /* TSE Profiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TSE Profiler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC032DE6246B8BF200AADEEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC032DE8246B8BF200AADEEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EC032DEA246B8BF200AADEEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EC032DEA246B8BF200AADEEA /* TSEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEViewController.swift; sourceTree = "<group>"; };
 		EC032DED246B8BF200AADEEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC032DEF246B8BF400AADEEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC032DF2246B8BF400AADEEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC032DF4246B8BF400AADEEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC09003B9C760E767399CB2C /* Pods-TSE Profiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSE Profiler.debug.xcconfig"; path = "Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				960CAA09C76B867927E301B6 /* Pods_TSE_Profiler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00FC08F28B48C5746D9BE9C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4EDFF71886E8D87943F87EC /* Pods_TSE_Profiler.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB7E4F3F7305A9AABC9EEA40 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC09003B9C760E767399CB2C /* Pods-TSE Profiler.debug.xcconfig */,
+				E34A9A8F74E70F9CE63D8FDA /* Pods-TSE Profiler.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EC032DDA246B8BF200AADEEA = {
 			isa = PBXGroup;
 			children = (
 				EC032DE5246B8BF200AADEEA /* TSE Profiler */,
 				EC032DE4246B8BF200AADEEA /* Products */,
+				EB7E4F3F7305A9AABC9EEA40 /* Pods */,
+				00FC08F28B48C5746D9BE9C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +82,37 @@
 			children = (
 				EC032DE6246B8BF200AADEEA /* AppDelegate.swift */,
 				EC032DE8246B8BF200AADEEA /* SceneDelegate.swift */,
-				EC032DEA246B8BF200AADEEA /* ViewController.swift */,
-				EC032DEC246B8BF200AADEEA /* Main.storyboard */,
+				EC032DFC246B8D4F00AADEEA /* Models */,
+				EC032DFB246B8D3300AADEEA /* Views */,
+				EC032DFA246B8D2500AADEEA /* Controllers */,
 				EC032DEF246B8BF400AADEEA /* Assets.xcassets */,
 				EC032DF1246B8BF400AADEEA /* LaunchScreen.storyboard */,
 				EC032DF4246B8BF400AADEEA /* Info.plist */,
 			);
 			path = "TSE Profiler";
+			sourceTree = "<group>";
+		};
+		EC032DFA246B8D2500AADEEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC032DEA246B8BF200AADEEA /* TSEViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EC032DFB246B8D3300AADEEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC032DEC246B8BF200AADEEA /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EC032DFC246B8D4F00AADEEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +122,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC032DF7246B8BF400AADEEA /* Build configuration list for PBXNativeTarget "TSE Profiler" */;
 			buildPhases = (
+				390A0B669DFD237CF91F274A /* [CP] Check Pods Manifest.lock */,
 				EC032DDF246B8BF200AADEEA /* Sources */,
 				EC032DE0246B8BF200AADEEA /* Frameworks */,
 				EC032DE1246B8BF200AADEEA /* Resources */,
+				F994D1B73CE4CB7BEA0BF71C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,12 +183,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		390A0B669DFD237CF91F274A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TSE Profiler-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F994D1B73CE4CB7BEA0BF71C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EC032DDF246B8BF200AADEEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC032DEB246B8BF200AADEEA /* ViewController.swift in Sources */,
+				EC032DEB246B8BF200AADEEA /* TSEViewController.swift in Sources */,
 				EC032DE7246B8BF200AADEEA /* AppDelegate.swift in Sources */,
 				EC032DE9246B8BF200AADEEA /* SceneDelegate.swift in Sources */,
 			);
@@ -282,6 +374,7 @@
 		};
 		EC032DF8246B8BF400AADEEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC09003B9C760E767399CB2C /* Pods-TSE Profiler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +393,7 @@
 		};
 		EC032DF9246B8BF400AADEEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E34A9A8F74E70F9CE63D8FDA /* Pods-TSE Profiler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

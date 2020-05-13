@@ -1,0 +1,6 @@
+framework module Pods_TSE_Profiler {
+  umbrella header "Pods-TSE Profiler-umbrella.h"
+
+  export *
+  module * { export * }
+}
