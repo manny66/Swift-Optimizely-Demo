@@ -11,21 +11,26 @@ import RealmSwift
 
 class TSEViewController: UITableViewController {
 
+    let role = "tse" // change to "manager" to see rollout
     let realm = try! Realm()
     
     var tses: Results<TSE>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        // get current number of tses stored
+        let currentTses = realm.objects(TSE.self)
         
-        if tses?.count == nil {
+        // if there are TSE entries already, then no need to populate dummy data
+        if currentTses.count < 1 {
             do{
                 try self.realm.write{
                     let tseArray = ["Tommy Hoang", "Ali Baker", "Charles Callaghan", "Michal Fasanek", "Tanka Poudel", "Tom Defeo"]
                     for engineer in tseArray {
                         let tse = TSE()
                         tse.name = engineer
+                        tse.role = self.role
                         self.realm.add(tse)
                     }
                 }
@@ -47,15 +52,9 @@ class TSEViewController: UITableViewController {
             
             let newTSE = TSE()
             newTSE.name = textField.text!
+            newTSE.role = self.role
             
-            do{
-                try self.realm.write{
-                    self.realm.add(newTSE)
-                }
-            } catch {
-                print("unable to add new tse: \(error)")
-            }
-            self.tableView.reloadData()
+            self.save(with: newTSE)
         }
         
         alert.addTextField { (alertField) in
@@ -67,6 +66,18 @@ class TSEViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    //MARK: - Save data
+    func save(with tse: TSE) {
+        
+        do {
+            try self.realm.write{
+                self.realm.add(tse)
+            }
+        } catch {
+            print("unable to add new tse: \(error)")
+        }
+        tableView.reloadData()
+    }
     
     
     //MARK: - Load TSEs
@@ -94,9 +105,18 @@ class TSEViewController: UITableViewController {
     //MARK: - Tableview Delegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // segue to new view
+        // segue to tasks view
+        performSegue(withIdentifier: "TseToTasks", sender: self)
+    }
+    
+    //MARK: - Segue operation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        let destinationVC = segue.destination as! TSETaskViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedTSE = tses?[indexPath.row]
+        }
     }
 }
 

@@ -16,6 +16,7 @@
 		EC032DF3246B8BF400AADEEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC032DF1246B8BF400AADEEA /* LaunchScreen.storyboard */; };
 		EC032DFE246B941200AADEEA /* TSE.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DFD246B941200AADEEA /* TSE.swift */; };
 		EC032E02246BBF1200AADEEA /* TSETasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032E01246BBF1200AADEEA /* TSETasks.swift */; };
+		EC032E04246BC21000AADEEA /* TSETaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032E03246BC21000AADEEA /* TSETaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		EC032DF4246B8BF400AADEEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC032DFD246B941200AADEEA /* TSE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE.swift; sourceTree = "<group>"; };
 		EC032E01246BBF1200AADEEA /* TSETasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSETasks.swift; sourceTree = "<group>"; };
+		EC032E03246BC21000AADEEA /* TSETaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSETaskViewController.swift; sourceTree = "<group>"; };
 		FC09003B9C760E767399CB2C /* Pods-TSE Profiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSE Profiler.debug.xcconfig"; path = "Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				EC032DEA246B8BF200AADEEA /* TSEListViewController.swift */,
+				EC032E03246BC21000AADEEA /* TSETaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC032E04246BC21000AADEEA /* TSETaskViewController.swift in Sources */,
 				EC032DFE246B941200AADEEA /* TSE.swift in Sources */,
 				EC032DEB246B8BF200AADEEA /* TSEListViewController.swift in Sources */,
 				EC032E02246BBF1200AADEEA /* TSETasks.swift in Sources */,

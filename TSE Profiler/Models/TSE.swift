@@ -11,6 +11,7 @@ import RealmSwift
 
 class TSE: Object {
     @objc dynamic var name: String = ""
+    @objc dynamic var role: String = ""
     
     let tasks = List<TSETasks>()
 }
