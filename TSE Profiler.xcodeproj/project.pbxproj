@@ -17,6 +17,7 @@
 		EC032DFE246B941200AADEEA /* TSE.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032DFD246B941200AADEEA /* TSE.swift */; };
 		EC032E02246BBF1200AADEEA /* TSETasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032E01246BBF1200AADEEA /* TSETasks.swift */; };
 		EC032E04246BC21000AADEEA /* TSETaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032E03246BC21000AADEEA /* TSETaskViewController.swift */; };
+		ECC59B30246CD3E0006898AB /* TSEDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC59B2F246CD3E0006898AB /* TSEDummy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		EC032DFD246B941200AADEEA /* TSE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE.swift; sourceTree = "<group>"; };
 		EC032E01246BBF1200AADEEA /* TSETasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSETasks.swift; sourceTree = "<group>"; };
 		EC032E03246BC21000AADEEA /* TSETaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSETaskViewController.swift; sourceTree = "<group>"; };
+		ECC59B2F246CD3E0006898AB /* TSEDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEDummy.swift; sourceTree = "<group>"; };
 		FC09003B9C760E767399CB2C /* Pods-TSE Profiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSE Profiler.debug.xcconfig"; path = "Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 			children = (
 				EC032DFD246B941200AADEEA /* TSE.swift */,
 				EC032E01246BBF1200AADEEA /* TSETasks.swift */,
+				ECC59B2F246CD3E0006898AB /* TSEDummy.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				EC032E02246BBF1200AADEEA /* TSETasks.swift in Sources */,
 				EC032DE7246B8BF200AADEEA /* AppDelegate.swift in Sources */,
 				EC032DE9246B8BF200AADEEA /* SceneDelegate.swift in Sources */,
+				ECC59B30246CD3E0006898AB /* TSEDummy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

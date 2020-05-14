@@ -18,30 +18,12 @@ class TSEViewController: UITableViewController {
     let userId = "user123"
     
     var tses: Results<TSE>?
-    
+    let tseDummy = TSEDummy()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // get current number of tses stored
-        let currentTses = realm.objects(TSE.self)
-        
-        // if there are TSE entries already, then no need to populate dummy data
-        if currentTses.count < 1 {
-            do{
-                try self.realm.write{
-                    let tseArray = ["Tommy Hoang", "Ali Baker", "Charles Callaghan", "Michal Fasanek", "Tanka Poudel", "Tom Defeo"]
-                    for engineer in tseArray {
-                        let tse = TSE()
-                        tse.name = engineer
-                        tse.role = self.role
-                        self.realm.add(tse)
-                    }
-                }
-            } catch {
-                print("unable to add new tse: \(error)")
-            }
-        }
+
+        tseDummy.populate()
         loadTses()
     }
 
