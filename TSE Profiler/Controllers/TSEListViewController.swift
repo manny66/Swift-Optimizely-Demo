@@ -8,17 +8,21 @@
 
 import UIKit
 import RealmSwift
+import Optimizely
 
 class TSEViewController: UITableViewController {
 
-    let role = "tse" // change to "manager" to see rollout
     let realm = try! Realm()
+
+    let role = "tse" // change to "manager" to see rollout
+    let userId = "user123"
     
     var tses: Results<TSE>?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // get current number of tses stored
         let currentTses = realm.objects(TSE.self)
         

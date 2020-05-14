@@ -8,17 +8,31 @@
 
 import UIKit
 import RealmSwift
+import Optimizely
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    // Build and config OptimizelyClient
+    let optimizely = OptimizelyClient(sdkKey: "QQJNMaYs9cLijynKsDme4o", periodicDownloadInterval: 30)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Instantiate the client asynchronously with a callback
+            optimizely.start { result in
+                switch result {
+                case .failure(let error):
+                 print("Optimizely SDK initiliazation failed: \(error)")
+                case .success:
+                 print("Optimizely SDK initialized successfully!")
+                }
+            }
+        
         // get location of storage
          print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
         
         return true
     }

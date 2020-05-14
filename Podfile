@@ -8,5 +8,6 @@ target 'TSE Profiler' do
   # Pods for TSE Profiler
 
 pod 'RealmSwift', '4.4.0'
+pod 'OptimizelySwiftSDK','~> 3.1.0'
 
 end

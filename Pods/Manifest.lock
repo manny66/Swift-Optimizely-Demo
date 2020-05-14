@@ -1,4 +1,5 @@
 PODS:
+  - OptimizelySwiftSDK (3.1.0)
   - Realm (4.4.0):
     - Realm/Headers (= 4.4.0)
   - Realm/Headers (4.4.0)
@@ -6,17 +7,20 @@ PODS:
     - Realm (= 4.4.0)
 
 DEPENDENCIES:
+  - OptimizelySwiftSDK (~> 3.1.0)
   - RealmSwift (= 4.4.0)
 
 SPEC REPOS:
   trunk:
+    - OptimizelySwiftSDK
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
+  OptimizelySwiftSDK: 9a6d33198644820d2daa041a630416825787d519
   Realm: e125f464884cda953ebefe70c671b75b03b81b9b
   RealmSwift: 33656a42bd300959a081fc13347376bc478071af
 
-PODFILE CHECKSUM: 12eeea24aac47aaad112a4a00eac60fd1a5b6d4a
+PODFILE CHECKSUM: 652a51baeebcd1b9cee1d2bb4aade2c433d627ee
 
 COCOAPODS: 1.9.1
