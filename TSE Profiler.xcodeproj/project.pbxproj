@@ -18,6 +18,7 @@
 		EC032E02246BBF1200AADEEA /* TSETasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032E01246BBF1200AADEEA /* TSETasks.swift */; };
 		EC032E04246BC21000AADEEA /* TSETaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC032E03246BC21000AADEEA /* TSETaskViewController.swift */; };
 		ECC59B30246CD3E0006898AB /* TSEDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC59B2F246CD3E0006898AB /* TSEDummy.swift */; };
+		ECC59B33246D1488006898AB /* localDatafile.json in Resources */ = {isa = PBXBuildFile; fileRef = ECC59B32246D1488006898AB /* localDatafile.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		EC032E01246BBF1200AADEEA /* TSETasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSETasks.swift; sourceTree = "<group>"; };
 		EC032E03246BC21000AADEEA /* TSETaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSETaskViewController.swift; sourceTree = "<group>"; };
 		ECC59B2F246CD3E0006898AB /* TSEDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEDummy.swift; sourceTree = "<group>"; };
+		ECC59B32246D1488006898AB /* localDatafile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = localDatafile.json; sourceTree = "<group>"; };
 		FC09003B9C760E767399CB2C /* Pods-TSE Profiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSE Profiler.debug.xcconfig"; path = "Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,7 +95,7 @@
 				EC032DFC246B8D4F00AADEEA /* Models */,
 				EC032DFB246B8D3300AADEEA /* Views */,
 				EC032DFA246B8D2500AADEEA /* Controllers */,
-				EC032DEF246B8BF400AADEEA /* Assets.xcassets */,
+				ECC59B31246D100A006898AB /* Supporting Files */,
 				EC032DF1246B8BF400AADEEA /* LaunchScreen.storyboard */,
 				EC032DF4246B8BF400AADEEA /* Info.plist */,
 			);
@@ -125,6 +127,15 @@
 				ECC59B2F246CD3E0006898AB /* TSEDummy.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ECC59B31246D100A006898AB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECC59B32246D1488006898AB /* localDatafile.json */,
+				EC032DEF246B8BF400AADEEA /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC59B33246D1488006898AB /* localDatafile.json in Resources */,
 				EC032DF3246B8BF400AADEEA /* LaunchScreen.storyboard in Resources */,
 				EC032DF0246B8BF400AADEEA /* Assets.xcassets in Resources */,
 				EC032DEE246B8BF200AADEEA /* Main.storyboard in Resources */,

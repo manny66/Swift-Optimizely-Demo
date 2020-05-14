@@ -12,18 +12,32 @@ import Optimizely
 
 class TSEViewController: UITableViewController {
 
-    let realm = try! Realm()
-
-    let role = "tse" // change to "manager" to see rollout
-    let userId = "user123"
+    @IBOutlet weak var barButtonAdd: UIBarButtonItem!
     
+    let realm = try! Realm()
     var tses: Results<TSE>?
+    
+    // get instance of TSEDummy
     let tseDummy = TSEDummy()
+    
+    // used for creating new tse entries
+    let role = "tse" // change to "manager" to see rollout
+    
+    // pass in when getting feature flag
+    let userId = "123" // change this if you modify the feature flag
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // hide add button if not a manager
+        if managerFeature() == false {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+        
+        // load dummy data if there aren't any entries yet
         tseDummy.populate()
+        
+        // get the existing entries stored and reload table with it
         loadTses()
     }
 
@@ -31,11 +45,9 @@ class TSEViewController: UITableViewController {
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
-        
         let alert = UIAlertController(title: "Add new TSE", message: "", preferredStyle: .alert)
-        
         let action = UIAlertAction(title: "Add", style: .default) { (alert) in
-            
+                        
             let newTSE = TSE()
             newTSE.name = textField.text!
             newTSE.role = self.role
@@ -65,6 +77,22 @@ class TSEViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    //MARK: - managerFeature
+    //new section created
+    
+    func managerFeature () -> Bool {
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+
+        let attributes: [String: Any] = [ "userRole": self.role ]
+        
+        let enabled = delegate.optimizely.isFeatureEnabled(featureKey: "managerfunctionality", userId: userId, attributes: attributes)
+        
+        print("Feature is enabled? - \(enabled) for userId: \(userId)")
+
+        return enabled
+    }
+    
     
     //MARK: - Load TSEs
 
@@ -85,14 +113,28 @@ class TSEViewController: UITableViewController {
         
         cell.textLabel?.text = tses?[indexPath.row].name ?? "no tse's listed"
         
+        // make cell look clickable if they get feature
+        if managerFeature() {
+            cell.accessoryType = .detailDisclosureButton
+        }
+        
         return cell
     }
     
     //MARK: - Tableview Delegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // check if featured is enabled for them
+        if managerFeature() {
+            
         // segue to tasks view
         performSegue(withIdentifier: "TseToTasks", sender: self)
+            
+        } else {
+            // make cell flash
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     //MARK: - Segue operation

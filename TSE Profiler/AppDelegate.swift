@@ -10,29 +10,33 @@ import UIKit
 import RealmSwift
 import Optimizely
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Build and config OptimizelyClient
-    let optimizely = OptimizelyClient(sdkKey: "QQJNMaYs9cLijynKsDme4o", periodicDownloadInterval: 30)
+    let optimizely = OptimizelyClient(sdkKey: "QQJNMaYs9cLijynKsDme4o", periodicDownloadInterval: 60)
 
+    // first thing that executes when app is run
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        // use local bundled datafile and periodically update datafile every 60seconds
+        if let localDatafilePath = Bundle.main.path(forResource: "localDatafile", ofType: "json") {
+
+        do {
+            let datafileJSON = try String(contentsOfFile: localDatafilePath, encoding: .utf8)
+            try optimizely.start(datafile: datafileJSON)
+
+            print("Optimizely SDK initialized successfully!")
+        } catch {
+            print("Optimizely SDK initiliazation failed: \(error)")
+        }
+
+        } else {
+            print("local file was not found")
+        }
         
-        // Instantiate the client asynchronously with a callback
-            optimizely.start { result in
-                switch result {
-                case .failure(let error):
-                 print("Optimizely SDK initiliazation failed: \(error)")
-                case .success:
-                 print("Optimizely SDK initialized successfully!")
-                }
-            }
-        
-        // get location of storage
-         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
+        // get location of realm db storage
+        // print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         return true
     }
@@ -50,7 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        
+    }
+    
+    
 }
 

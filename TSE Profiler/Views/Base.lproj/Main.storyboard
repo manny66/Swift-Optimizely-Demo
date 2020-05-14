@@ -37,6 +37,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="barButtonAdd" destination="hre-s2-XK4" id="y1h-BG-WZP"/>
                         <segue destination="Fsx-cE-VvI" kind="show" identifier="TseToTasks" id="1Ot-10-YpS"/>
                     </connections>
                 </tableViewController>
