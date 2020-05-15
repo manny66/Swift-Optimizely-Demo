@@ -9,10 +9,12 @@
 import Foundation
 import RealmSwift
 
+// Creates TSE entries by default if none exist
 struct TSEDummy {
     let realm = try! Realm()
     let dummyRole = "tse" // change to "manager" to see rollout
 
+// this function is called from TSEListViewController
     func populate() {
         // get current number of tses stored
         let currentTses = realm.objects(TSE.self)
@@ -20,6 +22,7 @@ struct TSEDummy {
         // if there are TSE entries already, then no need to populate dummy data
         if currentTses.count < 1 {
             do{
+                // being write process into realm DB
                 try self.realm.write{
                     let tseArray = [
                         "Tommy Hoang",
@@ -29,7 +32,7 @@ struct TSEDummy {
                         "Tanka Poudel",
                         "Tom Defeo"
                     ]
-                    
+                    // loop through array and create TSE entries for each
                     for engineer in tseArray {
                         let tse = TSE()
                         tse.name = engineer
