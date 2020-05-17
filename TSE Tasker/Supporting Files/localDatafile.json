@@ -1,0 +1,75 @@
+{
+    "version": "4",
+    "rollouts": [
+        {
+            "experiments": [
+                {
+                    "status": "Running",
+                    "audienceConditions": [
+                        "or",
+                        "18107470655"
+                    ],
+                    "audienceIds": [
+                        "18107470655"
+                    ],
+                    "variations": [
+                        {
+                            "variables": [],
+                            "id": "18103470522",
+                            "key": "18103470522",
+                            "featureEnabled": true
+                        }
+                    ],
+                    "id": "18094050785",
+                    "key": "18094050785",
+                    "layerId": "18094470704",
+                    "trafficAllocation": [
+                        {
+                            "entityId": "18103470522",
+                            "endOfRange": 10000
+                        }
+                    ],
+                    "forcedVariations": {}
+                }
+            ],
+            "id": "18094470704"
+        }
+    ],
+    "typedAudiences": [],
+    "anonymizeIP": true,
+    "projectId": "18086281243",
+    "variables": [],
+    "featureFlags": [
+        {
+            "experimentIds": [],
+            "rolloutId": "18094470704",
+            "variables": [],
+            "id": "18090481043",
+            "key": "managerfunctionality"
+        }
+    ],
+    "experiments": [],
+    "audiences": [
+        {
+            "id": "18107470655",
+            "conditions": "[\"and\", [\"or\", [\"or\", {\"match\": \"exact\", \"name\": \"userRole\", \"type\": \"custom_attribute\", \"value\": \"manager\"}]]]",
+            "name": "Manager"
+        },
+        {
+            "conditions": "[\"or\", {\"match\": \"exact\", \"name\": \"$opt_dummy_attribute\", \"type\": \"custom_attribute\", \"value\": \"$opt_dummy_value\"}]",
+            "id": "$opt_dummy_audience",
+            "name": "Optimizely-Generated Audience for Backwards Compatibility"
+        }
+    ],
+    "groups": [],
+    "attributes": [
+        {
+            "id": "18092540942",
+            "key": "userRole"
+        }
+    ],
+    "botFiltering": false,
+    "accountId": "10021082657",
+    "events": [],
+    "revision": "6"
+}

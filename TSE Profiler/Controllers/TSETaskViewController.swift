@@ -11,7 +11,7 @@ import RealmSwift
 import Optimizely
 
 // handles tasks view
-class TSETaskViewController: UITableViewController {
+class TSETaskViewController: SwipeViewController {
     
     // get realm instance
     let realm = try! Realm()
@@ -76,13 +76,29 @@ class TSETaskViewController: UITableViewController {
     
     
     
-    //MARK: - load tasks
+    //MARK: - Load Data
     // load stored tasks and sort by created date
 
     func loadTasks() {
         tasks = selectedTSE?.tasks.sorted(byKeyPath: "created", ascending: true)
         tableView.reloadData()
     }
+    
+    
+    //MARK: - Delete Data
+    
+    override func updateModel(at indexPath: IndexPath) {
+        if let task = self.tasks?[indexPath.row] {
+            do {
+                try self.realm.write{
+                    self.realm.delete(task)
+                }
+            } catch {
+                print("error when deleting task: \(error)")
+            }
+        }
+    }
+    
     
     //MARK: - Tableview Datasource
     
@@ -93,9 +109,8 @@ class TSETaskViewController: UITableViewController {
     
     // populates task title in each cell returned
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // gets cell we configured for view in main.storyboard
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TSETaskCell", for: indexPath)
+                
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         // if there are task objects update cell properties with task property values
         if let task = tasks?[indexPath.row] {

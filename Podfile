@@ -9,5 +9,6 @@ target 'TSE Profiler' do
 
 pod 'RealmSwift', '4.4.0'
 pod 'OptimizelySwiftSDK','~> 3.1.0'
+pod 'SwipeCellKit'
 
 end

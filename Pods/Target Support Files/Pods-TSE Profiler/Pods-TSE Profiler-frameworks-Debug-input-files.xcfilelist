@@ -2,3 +2,4 @@ ${PODS_ROOT}/Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler-frameworks
 ${BUILT_PRODUCTS_DIR}/OptimizelySwiftSDK/Optimizely.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
+${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework

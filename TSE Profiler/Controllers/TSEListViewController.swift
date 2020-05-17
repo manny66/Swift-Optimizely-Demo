@@ -11,7 +11,7 @@ import RealmSwift
 import Optimizely
 
 // handles TSE list view
-class TSEViewController: UITableViewController {
+class TSEViewController: SwipeViewController {
     
     @IBOutlet weak var barButtonAdd: UIBarButtonItem!
     
@@ -24,19 +24,15 @@ class TSEViewController: UITableViewController {
     // get instance of TSEDummy
     let tseDummy = TSEDummy()
     
-    // used for creating new tse entries
-    // change to "manager" to see feature rollout
-    let role = "tse"
-    
-    // passed in when getting feature flag
-    let userId = "123"
+    // get instance of feature class
+    let managerFeature = ManagerFeature()
     
     // Runs when the UI for view has loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // hide the add "+" button if the rollout feature is enabled (they are a manager)
-        if managerFeature() == false {
+        if  managerFeature.getFeature() == false {
             self.navigationItem.rightBarButtonItem = nil
         }
         
@@ -60,7 +56,7 @@ class TSEViewController: UITableViewController {
             // create new instance of TSE and specify properties
             let newTSE = TSE()
             newTSE.name = textField.text!
-            newTSE.role = self.role
+            newTSE.role = self.managerFeature.role // role prop not used for anything yet
             
             // call save function which will save new TSE entry to realm DB
             self.save(with: newTSE)
@@ -79,6 +75,38 @@ class TSEViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+
+
+    
+//    //MARK: - managerFeature
+//
+//    // This is where we use Optimizely delegate defined in AppDelegate.swift to check if feature is enabled. This function has a Boolean output.
+//    func managerFeature () -> Bool {
+//
+//        // set delegate to AppDelegate object
+//        let delegate = UIApplication.shared.delegate as! AppDelegate
+//
+//        // get attributes self.role is defined at the beginning of this controller class
+//        let attributes: [String: Any] = [ "userRole": self.role ]
+//
+//        // get enabled boolean for feature key
+//        let enabled = delegate.optimizely.isFeatureEnabled(featureKey: "managerfunctionality", userId: userId, attributes: attributes)
+//
+//        print("Feature is enabled? - \(enabled) for userId: \(userId)")
+//
+//        // returns true or flase
+//        return enabled
+//    }
+    
+    
+    //MARK: - Load Data
+    
+    // gets the objects in realm DB of type "TSE" and loads it
+    func loadTses() {
+        tses = realm.objects(TSE.self)
+        tableView.reloadData()
+    }
+    
     //MARK: - Save data
     func save(with tse: TSE) {
         
@@ -94,34 +122,20 @@ class TSEViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    //MARK: - managerFeature
+    //MARK: - Delete Data
     
-    // This is where we use Optimizely delegate defined in AppDelegate.swift to check if feature is enabled. This function has a Boolean output.
-    func managerFeature () -> Bool {
-        
-        // set delegate to AppDelegate object
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        
-        // get attributes self.role is defined at the beginning of this controller class
-        let attributes: [String: Any] = [ "userRole": self.role ]
-        
-        // get enabled boolean for feature key
-        let enabled = delegate.optimizely.isFeatureEnabled(featureKey: "managerfunctionality", userId: userId, attributes: attributes)
-        
-        print("Feature is enabled? - \(enabled) for userId: \(userId)")
-        
-        // returns true or flase
-        return enabled
+    override func updateModel(at indexPath: IndexPath) {
+        if let tse = self.tses?[indexPath.row] {
+            do {
+                try self.realm.write{
+                    self.realm.delete(tse)
+                }
+            } catch {
+                print("error when deleting tse: \(error)")
+            }
+        }
     }
     
-    
-    //MARK: - Load TSEs
-    
-    // gets the objects in realm DB of type "TSE" and loads it
-    func loadTses() {
-        tses = realm.objects(TSE.self)
-        tableView.reloadData()
-    }
     
     //MARK: - Tableview Datasource
     
@@ -133,9 +147,8 @@ class TSEViewController: UITableViewController {
     
     // populates data for every cell returned above and returns it to table
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // get cell we defined in main.storyboard for this view
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TSECell", for: indexPath)
+                
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         // display the tse name property at this row, otherwise show string
         cell.textLabel?.text = tses?[indexPath.row].name ?? "no tse's listed"
