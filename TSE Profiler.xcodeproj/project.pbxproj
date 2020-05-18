@@ -20,7 +20,7 @@
 		ECC59B30246CD3E0006898AB /* TSEDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC59B2F246CD3E0006898AB /* TSEDummy.swift */; };
 		ECC59B33246D1488006898AB /* localDatafile.json in Resources */ = {isa = PBXBuildFile; fileRef = ECC59B32246D1488006898AB /* localDatafile.json */; };
 		ECC59B3724715683006898AB /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC59B3624715683006898AB /* SwipeViewController.swift */; };
-		ECC59B3924715AAA006898AB /* ManagerFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC59B3824715AAA006898AB /* ManagerFeature.swift */; };
+		ECC59B3924715AAA006898AB /* OptimizelyStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC59B3824715AAA006898AB /* OptimizelyStuff.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,7 @@
 		ECC59B2F246CD3E0006898AB /* TSEDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEDummy.swift; sourceTree = "<group>"; };
 		ECC59B32246D1488006898AB /* localDatafile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = localDatafile.json; sourceTree = "<group>"; };
 		ECC59B3624715683006898AB /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
-		ECC59B3824715AAA006898AB /* ManagerFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerFeature.swift; sourceTree = "<group>"; };
+		ECC59B3824715AAA006898AB /* OptimizelyStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizelyStuff.swift; sourceTree = "<group>"; };
 		FC09003B9C760E767399CB2C /* Pods-TSE Profiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSE Profiler.debug.xcconfig"; path = "Target Support Files/Pods-TSE Profiler/Pods-TSE Profiler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +130,7 @@
 				EC032DFD246B941200AADEEA /* TSE.swift */,
 				EC032E01246BBF1200AADEEA /* TSETasks.swift */,
 				ECC59B2F246CD3E0006898AB /* TSEDummy.swift */,
-				ECC59B3824715AAA006898AB /* ManagerFeature.swift */,
+				ECC59B3824715AAA006898AB /* OptimizelyStuff.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECC59B3924715AAA006898AB /* ManagerFeature.swift in Sources */,
+				ECC59B3924715AAA006898AB /* OptimizelyStuff.swift in Sources */,
 				EC032E04246BC21000AADEEA /* TSETaskViewController.swift in Sources */,
 				EC032DFE246B941200AADEEA /* TSE.swift in Sources */,
 				EC032DEB246B8BF200AADEEA /* TSEListViewController.swift in Sources */,

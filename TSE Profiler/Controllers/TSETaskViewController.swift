@@ -18,7 +18,7 @@ class TSETaskViewController: SwipeViewController {
     
     // get realm Results container of TSETasks
     var tasks: Results<TSETasks>?
-    
+
     // this variable gets populated by TSEListViewController before segque transition
     var selectedTSE: TSE? {
         didSet{
@@ -27,10 +27,14 @@ class TSETaskViewController: SwipeViewController {
         }
     }
     
+    // get instance of feature class
+    let optimizelyStuff = OptimizelyStuff()
+    
     // runs when view appears
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(optimizelyStuff.expVariation())
     }
     
     //MARK: - Add buttod

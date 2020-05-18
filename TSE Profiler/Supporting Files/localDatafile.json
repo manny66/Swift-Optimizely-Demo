@@ -48,7 +48,38 @@
             "key": "managerfunctionality"
         }
     ],
-    "experiments": [],
+    "experiments": [
+        {
+            "status": "Running",
+            "audienceIds": [],
+            "variations": [
+                {
+                    "variables": [],
+                    "id": "18105601604",
+                    "key": "variation_1"
+                },
+                {
+                    "variables": [],
+                    "id": "18115012401",
+                    "key": "variation_2"
+                }
+            ],
+            "id": "18103412637",
+            "key": "adding_colour",
+            "layerId": "18103792327",
+            "trafficAllocation": [
+                {
+                    "entityId": "18105601604",
+                    "endOfRange": 5000
+                },
+                {
+                    "entityId": "18115012401",
+                    "endOfRange": 10000
+                }
+            ],
+            "forcedVariations": {}
+        }
+    ],
     "audiences": [
         {
             "id": "18107470655",
@@ -71,5 +102,5 @@
     "botFiltering": false,
     "accountId": "10021082657",
     "events": [],
-    "revision": "6"
+    "revision": "12"
 }

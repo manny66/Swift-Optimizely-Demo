@@ -25,22 +25,26 @@ class TSEViewController: SwipeViewController {
     let tseDummy = TSEDummy()
     
     // get instance of feature class
-    let managerFeature = ManagerFeature()
+    let optimizelyStuff = OptimizelyStuff()
+    
     
     // Runs when the UI for view has loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // hide the add "+" button if the rollout feature is enabled (they are a manager)
-        if  managerFeature.getFeature() == false {
+        if  optimizelyStuff.getFeature() == false {
             self.navigationItem.rightBarButtonItem = nil
         }
+        
+        print(optimizelyStuff.expActivate())
         
         // load dummy data if there aren't any entries yet
         tseDummy.populate()
         
         // get the existing entries stored and reload table with it
         loadTses()
+        
     }
     
     //MARK: - Add button
@@ -56,7 +60,7 @@ class TSEViewController: SwipeViewController {
             // create new instance of TSE and specify properties
             let newTSE = TSE()
             newTSE.name = textField.text!
-            newTSE.role = self.managerFeature.role // role prop not used for anything yet
+            newTSE.role = self.optimizelyStuff.role // role prop not used for anything yet
             
             // call save function which will save new TSE entry to realm DB
             self.save(with: newTSE)
@@ -74,29 +78,6 @@ class TSEViewController: SwipeViewController {
         // show the popup alert
         present(alert, animated: true, completion: nil)
     }
-    
-
-
-    
-//    //MARK: - managerFeature
-//
-//    // This is where we use Optimizely delegate defined in AppDelegate.swift to check if feature is enabled. This function has a Boolean output.
-//    func managerFeature () -> Bool {
-//
-//        // set delegate to AppDelegate object
-//        let delegate = UIApplication.shared.delegate as! AppDelegate
-//
-//        // get attributes self.role is defined at the beginning of this controller class
-//        let attributes: [String: Any] = [ "userRole": self.role ]
-//
-//        // get enabled boolean for feature key
-//        let enabled = delegate.optimizely.isFeatureEnabled(featureKey: "managerfunctionality", userId: userId, attributes: attributes)
-//
-//        print("Feature is enabled? - \(enabled) for userId: \(userId)")
-//
-//        // returns true or flase
-//        return enabled
-//    }
     
     
     //MARK: - Load Data
