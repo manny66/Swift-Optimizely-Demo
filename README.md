@@ -23,9 +23,11 @@ The app includes functionality such as:
 1. Install Xcode
 2. Get clone app URL from rep
 3. In xcode click on new project clone and enter URL
-4. Click on the play button on the top left hand corner of xcode (this will build the app)
-5. There are 3 dependency packages used in the App via cocoapods so it may take a couple of minutes to build
-6. After app is finished building, it will run the simulator and let you interact with the app
+4. Save it to a directory on your machine
+5. Close xcode and open the file "TSE Profiler.xcworkspace" in the root folder (do not use the .xcodeproj file)
+6. Click on the play button on the top left hand corner of xcode (this will build the app)
+7. There are 3 dependency packages used in the App via cocoapods so it may take a couple of minutes to build
+8. After app is finished building, it will run the simulator and let you interact with the app
 
 ## Swift SDK Installation
 We are using the cocoapod dependency package manager to install the SDK.
@@ -96,7 +98,7 @@ The variations are evaluated when the subsequent view is loaded which is managed
     }
 ```        
 
-We also track usage of the search filter in the same file
+In the same file, we also use Optimizely track() to send conversions when search is used 
 
 ```swift
  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
