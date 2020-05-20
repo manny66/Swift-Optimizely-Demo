@@ -31,7 +31,7 @@ The app includes functionality such as:
 
 ## Main files in the project and what they do
 
-![image](https://user-images.githubusercontent.com/36277912/82416190-fac58800-9abc-11ea-86bc-262759d90d8e.png)
+![image](https://user-images.githubusercontent.com/36277912/82416312-28123600-9abd-11ea-9f21-aea77b311797.png)
 
 ## Swift SDK Installation
 We are using the cocoapod dependency package manager to install the SDK.
