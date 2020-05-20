@@ -18,7 +18,7 @@ class TSETaskViewController: SwipeViewController {
     
     // get realm Results container of TSETasks
     var tasks: Results<TSETasks>?
-
+    
     // this variable gets populated by TSEListViewController before segque transition
     var selectedTSE: TSE? {
         didSet{
@@ -30,11 +30,19 @@ class TSETaskViewController: SwipeViewController {
     // get instance of feature class
     let optimizelyStuff = OptimizelyStuff()
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     // runs when view appears
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(optimizelyStuff.expVariation())
+        
+        // enable search bar if "SearchBar" variation was given
+        if let variation = optimizelyStuff.expVariation(key: "search_bar") {
+            if variation == "SearchBarTrue" {
+                searchBar.isHidden = false
+            }
+        }
+        
     }
     
     //MARK: - Add buttod
@@ -82,7 +90,7 @@ class TSETaskViewController: SwipeViewController {
     
     //MARK: - Load Data
     // load stored tasks and sort by created date
-
+    
     func loadTasks() {
         tasks = selectedTSE?.tasks.sorted(byKeyPath: "created", ascending: true)
         tableView.reloadData()
@@ -113,7 +121,7 @@ class TSETaskViewController: SwipeViewController {
     
     // populates task title in each cell returned
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                
+        
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
         // if there are task objects update cell properties with task property values
@@ -150,5 +158,39 @@ class TSETaskViewController: SwipeViewController {
         
         // makes cell flash when clicked
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+
+//MARK: - Search Bar (class extension)
+
+// extends the main class using adoption of delegate protocol
+extension TSETaskViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        // trigger optimizely event when search is performed
+        optimizelyStuff.triggerEvent(event: "used_search")
+        
+        // filter realm "tasks" objects with search bar text and do an asc sort on title key
+        tasks = tasks?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "created", ascending: true)
+        
+        // reload table with filtered data
+        tableView.reloadData()
+    }
+    
+    // resets list of tasks and takes focus out of the search bar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // run only if there is no text at all
+        if searchBar.text?.count == 0 {
+            // no argument provided so it will use the default value and load all items
+            loadTasks()
+            
+            // run async in main thread because it could lock up the UI
+            DispatchQueue.main.async {
+                // the search bard should not be selected with the cursor anymore
+                searchBar.resignFirstResponder()
+            }
+        }
     }
 }

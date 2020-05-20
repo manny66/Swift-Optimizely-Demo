@@ -12,7 +12,7 @@ import SwipeCellKit
 // This Super class handles swipe deletion of entries
 class SwipeViewController: UITableViewController, SwipeTableViewCellDelegate {
 
-    let feature = ManagerFeature()
+    let feature = OptimizelyStuff()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,22 +22,26 @@ class SwipeViewController: UITableViewController, SwipeTableViewCellDelegate {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
+    // create reusable cell object using Cell component in main.storyboard
       let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SwipeTableViewCell
       
-    if feature.getFeature() {
+    // Only allow deletion feature if rollout feature enabled returns true
+    if feature.getFeature(key: "managerfunctionality") {
         cell.delegate = self
     }
     
+    // return cell object to tableview
       return cell
   }
     
+    // what happens when cell is swiped
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
            
            guard orientation == .right else { return nil }
            
            let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
                
-               // this is what kicks off the deletion from realm
+               // this is what kicks off the deletion from realm db
                self.updateModel(at: indexPath)
            
            }
@@ -49,6 +53,7 @@ class SwipeViewController: UITableViewController, SwipeTableViewCellDelegate {
            
        }
        
+    // allows user to delete via full swipe
        func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
            var options = SwipeOptions()
            options.expansionStyle = .destructive

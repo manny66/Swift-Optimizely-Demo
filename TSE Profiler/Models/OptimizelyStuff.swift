@@ -16,19 +16,19 @@ class OptimizelyStuff: UIViewController {
     let role = "manager"
     
     // passed in when getting feature flag
-    let userId = "123"
+    let userId = "bill"
     
     // set delegate to AppDelegate object which will let us use the initalised Optimizely object
     let delegate = UIApplication.shared.delegate as! AppDelegate
     
-    // rollout feature
-    func getFeature () -> Bool {
+    // rollout feature by passing in key parameter
+    func getFeature (key: String) -> Bool {
         
         // get attributes self.role is defined at the beginning of this controller class
         let attributes: [String: Any] = [ "userRole": role ]
         
         // get enabled boolean for feature key
-        let enabled = delegate.optimizely.isFeatureEnabled(featureKey: "managerfunctionality", userId: userId, attributes: attributes)
+        let enabled = delegate.optimizely.isFeatureEnabled(featureKey: key, userId: userId, attributes: attributes)
         
         print("Feature is enabled? - \(enabled) for userId: \(userId)")
         
@@ -36,27 +36,36 @@ class OptimizelyStuff: UIViewController {
         return enabled
     }
     
-    // ab test activation
-    func expActivate () -> String? {
+    // activate experiment by passing in key paramater
+    func expActivate (key: String) -> String? {
         
         do {
-            let variationKey = try delegate.optimizely.activate(experimentKey:"adding_colour", userId: userId)
+            let variationKey = try delegate.optimizely.activate(experimentKey: key, userId: userId)
             return variationKey
         } catch {
-            print(error)
+            print("Error activating experiment: \(error)")
             return nil
         }
     }
     
     // get variation without activating
-    func expVariation () -> String? {
+    func expVariation (key: String) -> String? {
         
         do{
-            let variationKey = try delegate.optimizely.getVariationKey(experimentKey: "adding_colour", userId: userId)
+            let variationKey = try delegate.optimizely.getVariationKey(experimentKey: key, userId: userId)
             return variationKey
         } catch {
-            print(error)
+            print("Error getting variation key: \(error)")
             return nil
+        }
+    }
+    
+    // execute track() on the event parameter it requires
+    func triggerEvent (event: String) {
+        do{
+            try delegate.optimizely.track(eventKey: event, userId: userId)
+        } catch {
+            print("Error trying to trigger event: \(error)")
         }
     }
     

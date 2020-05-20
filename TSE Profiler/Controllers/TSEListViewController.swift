@@ -33,11 +33,12 @@ class TSEViewController: SwipeViewController {
         super.viewDidLoad()
         
         // hide the add "+" button if the rollout feature is enabled (they are a manager)
-        if  optimizelyStuff.getFeature() == false {
+        if optimizelyStuff.getFeature(key: "managerfunctionality") == false {
             self.navigationItem.rightBarButtonItem = nil
         }
         
-        print(optimizelyStuff.expActivate())
+        // activate experiment
+        _ = optimizelyStuff.expActivate(key: "search_bar")
         
         // load dummy data if there aren't any entries yet
         tseDummy.populate()

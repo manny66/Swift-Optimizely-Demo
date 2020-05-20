@@ -56,16 +56,16 @@
                 {
                     "variables": [],
                     "id": "18105601604",
-                    "key": "variation_1"
+                    "key": "SearchBarFalse"
                 },
                 {
                     "variables": [],
                     "id": "18115012401",
-                    "key": "variation_2"
+                    "key": "SearchBarTrue"
                 }
             ],
             "id": "18103412637",
-            "key": "adding_colour",
+            "key": "search_bar",
             "layerId": "18103792327",
             "trafficAllocation": [
                 {
@@ -101,6 +101,14 @@
     ],
     "botFiltering": false,
     "accountId": "10021082657",
-    "events": [],
-    "revision": "12"
+    "events": [
+        {
+            "experimentIds": [
+                "18103412637"
+            ],
+            "id": "18116730102",
+            "key": "used_search"
+        }
+    ],
+    "revision": "19"
 }
