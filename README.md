@@ -29,6 +29,10 @@ The app includes functionality such as:
 7. There are 3 dependency packages used in the App via cocoapods so it may take a couple of minutes to build
 8. After app is finished building, it will run the simulator and let you interact with the app
 
+## Main files in the project and what they do
+
+![image](https://user-images.githubusercontent.com/36277912/82416190-fac58800-9abc-11ea-86bc-262759d90d8e.png)
+
 ## Swift SDK Installation
 We are using the cocoapod dependency package manager to install the SDK.
 This has already been done as per instructions in our [KB linked here](https://docs.developers.optimizely.com/full-stack/docs/install-sdk-swift#section-cocoapods).
